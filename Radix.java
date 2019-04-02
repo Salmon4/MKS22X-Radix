@@ -6,16 +6,19 @@ public class Radix{
         max = data[i];
       }
     }
-
+    MyLinkedList<Integer> data2 = new MyLinkedList(data.length);
+    for (int i = 0; i < data.length; i++){
+      data2.add(data[i]);
+    }
     for (int deciPlace = 1; max/deciPlace > 0; deciPlace *= 10){
-      deciSort(data,deciPlace);
+      deciSort(data2,deciPlace);
     }
 
   }
 
-  private static void deciSort(int[]data, int num){
+  private static void deciSort(MyLinkedList data, int num){
     MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
-    for (int i = 0; i < data.length;i++){
+    for (int i = 0; i < data.size();i++){
       int currentDigit = (data[i]/num)%10;
       if (currentDigit == 0){
         buckets[0].add(data[i]);
@@ -48,5 +51,16 @@ public class Radix{
         buckets[9].add(data[i]);
       }
     }
+
+    buckets[0].extend(bucket[1]);
+    buckets[0].extend(bucket[2]);
+    buckets[0].extend(bucket[3]);
+    buckets[0].extend(bucket[4]);
+    buckets[0].extend(bucket[5]);
+    buckets[0].extend(bucket[6]);
+    buckets[0].extend(bucket[7]);
+    buckets[0].extend(bucket[8]);
+    buckets[0].extend(bucket[9]);
+    data = bucket[0];
   }
 }
