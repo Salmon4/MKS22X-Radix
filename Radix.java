@@ -1,21 +1,46 @@
 public class Radix{
-  public static void radixsort(int[]data){
+  public static void radixsort(int[] data){
     int max = 0;
     for (int i = 0; i < data.length; i++){
       if (data[i] > max){
         max = data[i];
       }
     }
-    MyLinkedList<Integer> data2 = new MyLinkedList(data.length);
+    int maxdigits = String.valueOf(max).length();
+
+    MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
+    for(int i = 0; i < buckets.length; i++){
+      buckets[i] = new MyLinkedList<>();
+    }
+
     for (int i = 0; i < data.length; i++){
-      data2.add(data[i]);
+      int ones = data[i] % 10;
+      if (data[i] < 0){
+        buckets[].add() //positive
+      }
+      else{
+        buckets[].add() //negative
+      }
     }
-    for (int deciPlace = 1; max/deciPlace > 0; deciPlace *= 10){
-      deciSort(data2,deciPlace);
+
+    MyLinkedList<Integer> data2 = new MyLinkedList<>();
+    for (int i = 0; i < buckets.length; i++){
+      data2.extend(buckets[i]);
     }
+
+    for (int currentDigit = 1; currentDigit < maxdigits; currentDigit++){
+      
+    }
+    //for (int i = 0; i < data.length; i++){
+    //  data2.add(data[i]);
+    //}
+    //for (int deciPlace = 1; max/deciPlace > 0; deciPlace *= 10){
+      //deciSort(data2,deciPlace);
+    //}
 
   }
 
+/**
   private static void deciSort(MyLinkedList data, int num){
     MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
     for (int i = 0; i < data.size();i++){
@@ -52,6 +77,7 @@ public class Radix{
       }
     }
 
+
     buckets[0].extend(bucket[1]);
     buckets[0].extend(bucket[2]);
     buckets[0].extend(bucket[3]);
@@ -63,4 +89,5 @@ public class Radix{
     buckets[0].extend(bucket[9]);
     data = bucket[0];
   }
+  **/
 }
