@@ -1,7 +1,7 @@
 public class Node{
  private Integer data;
  private Node next,prev;
-	public Node(int d, Node n, Node p){
+	public Node(T d, Node n, Node p){
 		data = d;
 		next = n;
 		prev = p;
@@ -11,7 +11,7 @@ public class Node{
 		return data;
 	}
 
-	public Integer setData(Integer i){
+	public Integer setData(T i){
 		Integer temp = data;
 		data = i;
 		return data;
