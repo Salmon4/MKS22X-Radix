@@ -1,5 +1,5 @@
-public class Node{
- private Integer data;
+public class Node<T>{
+ private T data;
  private Node next,prev;
 	public Node(T d, Node n, Node p){
 		data = d;
@@ -7,12 +7,12 @@ public class Node{
 		prev = p;
 	}
 
-	public Integer getData(){
+	public T getData(){
 		return data;
 	}
 
-	public Integer setData(T i){
-		Integer temp = data;
+	public T setData(T i){
+		T temp = data;
 		data = i;
 		return data;
 	}
